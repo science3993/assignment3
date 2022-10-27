@@ -85,3 +85,50 @@ print(confusion_matrix(Y_val, y_pred))
 # Accuracy score
 from sklearn.metrics import accuracy_score
 print('accuracy is',accuracy_score(Y_val, y_pred))
+
+
+#problem_2
+glass=pd.read_csv("glass.csv") #importing glass dataset
+
+glass.head() #getting the rows from dataset
+
+glass.corr().style.background_gradient(cmap="Reds")#colourmap for visualization 1
+
+sns.heatmap(matrix, annot=True, vmax=1, vmin=-1, center=0, cmap='vlag') #colourmap for visualization 2
+plt.show()
+
+features = ['Rl', 'Na', 'Mg', 'Al', 'Si', 'K', 'Ca', 'Ba', 'Fe']
+target = 'Type'
+
+
+X_train, X_val, Y_train, Y_val = train_test_split(glass[::-1], glass['Type'],test_size=0.2, random_state=1)
+
+classifier = GaussianNB()
+
+classifier.fit(X_train, Y_train) # train the classifier with X_train, Y_train
+
+
+y_pred = classifier.predict(X_val)
+
+# Summary of the predictions made by the classifier
+print(classification_report(Y_val, y_pred)) #used to measure the quality of predictions from a classification algorithm
+print(confusion_matrix(Y_val, y_pred))
+# Accuracy score
+from sklearn.metrics import accuracy_score
+print('accuracy is',accuracy_score(Y_val, y_pred)) #finding the accuracy
+
+from sklearn.svm import SVC, LinearSVC #Implement linear SVM method using scikit library
+
+classifier = LinearSVC()
+
+classifier.fit(X_train, Y_train)
+# train the classifier with X_train, Y_train
+
+y_pred = classifier.predict(X_val)
+
+# Summary of the predictions made by the classifier
+print(classification_report(Y_val, y_pred)) #used to measure the quality of predictions from a classification algorithm
+print(confusion_matrix(Y_val, y_pred))
+# Accuracy score
+from sklearn.metrics import accuracy_score 
+print('accuracy is',accuracy_score(Y_val, y_pred))  #finding the accuracy
