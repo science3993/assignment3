@@ -1,4 +1,6 @@
 # assignment3
+
+#problem1
 # importing libraries
 import pandas as pd 
 import seaborn as sns
