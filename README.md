@@ -1,6 +1,7 @@
 # assignment3
 
-#problem1
+# problem_1
+
 # importing libraries
 import pandas as pd 
 import seaborn as sns
@@ -89,7 +90,7 @@ from sklearn.metrics import accuracy_score
 print('accuracy is',accuracy_score(Y_val, y_pred))
 
 
-#problem_2
+# problem_2
 glass=pd.read_csv("glass.csv") #importing glass dataset
 
 glass.head() #getting the rows from dataset
